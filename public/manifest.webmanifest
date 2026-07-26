@@ -1,0 +1,24 @@
+{
+  "name": "山里有风，也有我们",
+  "short_name": "山里见",
+  "description": "Jenny 和 Richard 的安吉小旅行 OS",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F6EEDC",
+  "theme_color": "#214D3A",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
