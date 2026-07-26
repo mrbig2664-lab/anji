@@ -199,8 +199,16 @@ h1 em, h2 em { color: var(--khaki); font-style: italic; font-weight: 500; }
 }
 
 @media (min-width: 960px) {
-  .hero, .hero-content { min-height: 820px; }
-  .hero-content { max-width: 1280px; margin: 0 auto; padding: 190px 64px 44px; }
+  .topbar { color: var(--espresso); }
+  .hero { min-height: 820px; background: var(--ivory); }
+  .hero-image { top: 0; right: 0; bottom: 0; left: auto; width: 55%; height: 100%; object-fit: cover; object-position: center 72%; background: var(--khaki-light); }
+  .hero-overlay { top: 0; right: 0; bottom: 0; left: 45%; background: rgba(20, 43, 35, .08); }
+  .hero-content { width: 45%; max-width: none; min-height: 820px; margin: 0; padding: 190px 48px 44px 64px; color: var(--espresso); background: var(--ivory); }
+  .hero-content h1 { color: var(--bamboo-deep); text-shadow: none; }
+  .hero-content .hero-kicker { color: var(--bamboo); opacity: .82; }
+  .hero-content .hero-en-title { color: var(--tomato); }
+  .hero-content .hero-meta { color: var(--espresso); }
+  .hero-content .meta-line { background: var(--espresso); }
   .hero-meta { font-size: 11px; }
   .intro-band { padding-left: max(64px, calc((100vw - 1152px) / 2)); padding-right: max(64px, calc((100vw - 1152px) / 2)); }
   .content-section, .memory-inner { padding-left: 64px; padding-right: 64px; }
@@ -217,7 +225,7 @@ h1 em, h2 em { color: var(--khaki); font-style: italic; font-weight: 500; }
 }
 
 @media (min-width: 1280px) {
-  .hero-content { padding-left: 0; padding-right: 0; }
+  .hero-content { padding-left: max(64px, calc((100vw - 1152px) / 2)); padding-right: 64px; }
   .content-section, .memory-inner { padding-left: 0; padding-right: 0; }
   .intro-band { padding-left: calc((100vw - 1152px) / 2); padding-right: calc((100vw - 1152px) / 2); }
 }
