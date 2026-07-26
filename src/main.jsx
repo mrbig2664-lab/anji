@@ -4,6 +4,16 @@ import { readState, writeState } from './storage'
 import './styles.css'
 
 const heroImage = '/images/hero-postcard-mobile-v2.png'
+const stickers = {
+  jennyWave: '/stickers/sticker-jenny-wave.png',
+  richardCalm: '/stickers/sticker-richard-calm.png',
+  cheekPinch: '/stickers/sticker-cheek-pinch.png',
+  kiss: '/stickers/sticker-kiss.png',
+  waterfallCoffee: '/stickers/sticker-waterfall-coffee.png',
+  rafting: '/stickers/sticker-rafting.png',
+  photoMission: '/stickers/sticker-photo-mission.png',
+  roadTrip: '/stickers/sticker-road-trip.png',
+}
 
 const days = [
   { id: 'pre', label: 'Pre-trip', short: '出发前夜', date: '7/27', ticket: 'PACK LIGHT', mood: '先把松弛带上', title: '出发前夜', next: '收拾漂流和游泳要用的东西', summary: '先把该带的带上，别把松弛留在上海。', checklist: ['身份证', '充电器', '充电宝', '泳衣', '拖鞋', '手机防水袋', '防晒', '防蚊', '换洗衣服'], task: '各自选 3 首路上想听的歌。', pending: ['明天下午出发时间', '酒店入住信息', '第一晚晚饭'], plans: [['Evening', '收拾行李', '漂流、游泳和路上要用的东西先放到门口。']] },
@@ -97,7 +107,7 @@ function MemoryMode({ autoId, selectedId, setSelectedId, photos, memories, decis
 function PlanSection({ activeDay, setActiveDay, completed, togglePlan }) {
   const day = dayMap[activeDay] || dayMap.day1
   const travelDays = Object.values(dayMap).filter(item => item.id.startsWith('day'))
-  return <section className="plan-section content-section" id="plan"><SectionHeading eyebrow="02 / Four-day plan" title="四天慢慢走" copy="票根比行程表轻一点，展开之后才是细节。" /><div className="ticket-row">{travelDays.map(item => <button className={`plan-ticket ${activeDay === item.id ? 'active' : ''}`} key={item.id} onClick={() => setActiveDay(item.id)}><span>{item.label} · {item.date}</span><strong>{item.short}</strong><i>{activeDay === item.id ? '−' : '+'}</i></button>)}</div><div className="plan-expanded"><div className="expanded-heading"><span>{day.date} / {day.mood}</span><b>{day.title}</b></div><div className="expanded-plans">{day.plans.map((plan, index) => { const key = `${day.id}-${index}`; return <button className={`expanded-plan ${completed[key] ? 'done' : ''}`} key={key} onClick={() => togglePlan(key)}><span>{plan[0]}</span><i>{completed[key] ? '✓' : ''}</i><div><b>{plan[1]}</b><small>{plan[2]}</small></div></button> })}</div><div className="mini-notes"><div><span>COUPLE TASK</span><p>{day.task}</p></div><div><span>PHOTO MISSION</span><p>{day.id === 'day1' ? '酒店第一张合照' : day.id === 'day2' ? '漂流后狼狈照' : day.id === 'day3' ? '不用露脸但很像对方' : '这趟旅行的封面照'}</p></div></div></div></section>
+  return <section className="plan-section content-section" id="plan"><SectionHeading eyebrow="02 / Four-day plan" title="四天慢慢走" copy="票根比行程表轻一点，展开之后才是细节。" /><div className="ticket-row">{travelDays.map(item => <button className={`plan-ticket ${activeDay === item.id ? 'active' : ''}`} key={item.id} onClick={() => setActiveDay(item.id)}><span>{item.label} · {item.date}</span><strong>{item.short}</strong><i>{activeDay === item.id ? '−' : '+'}</i></button>)}</div><div className={`plan-expanded plan-${day.id}`}><div className="expanded-heading"><span>{day.date} / {day.mood}</span><b>{day.title}</b></div><div className="expanded-plans">{day.plans.map((plan, index) => { const key = `${day.id}-${index}`; return <button className={`expanded-plan ${completed[key] ? 'done' : ''}`} key={key} onClick={() => togglePlan(key)}><span>{plan[0]}</span><i>{completed[key] ? '✓' : ''}</i><div><b>{plan[1]}</b><small>{plan[2]}</small></div></button> })}</div><div className="mini-notes"><div><span>COUPLE TASK</span><p>{day.task}</p></div><div><span>PHOTO MISSION</span><p>{day.id === 'day1' ? '酒店第一张合照' : day.id === 'day2' ? '漂流后狼狈照' : day.id === 'day3' ? '不用露脸但很像对方' : '这趟旅行的封面照'}</p></div></div></div></section>
 }
 
 function DecisionBoard({ decisions, toggleDecision }) {
