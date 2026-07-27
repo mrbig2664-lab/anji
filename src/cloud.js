@@ -12,6 +12,7 @@ const photoFromRow = row => ({
   src: row.public_url,
   storagePath: row.storage_path,
   caption: row.caption || '',
+  captionBy: row.caption_by || '',
   type: row.photo_type || 'Us',
   uploadedBy: row.uploaded_by,
   isDayCover: Boolean(row.is_day_cover),
@@ -146,6 +147,7 @@ export async function uploadPhoto(file, { day, type, caption, uploadedBy }) {
 export async function updatePhoto(id, patch) {
   const rowPatch = {}
   if (patch.caption !== undefined) rowPatch.caption = patch.caption
+  if (patch.captionBy !== undefined) rowPatch.caption_by = patch.captionBy
   if (patch.isDayCover !== undefined) rowPatch.is_day_cover = patch.isDayCover
   if (patch.isTripCover !== undefined) rowPatch.is_trip_cover = patch.isTripCover
   const { data, error } = await supabase.from('photos').update(rowPatch).eq('id', id).select().single()

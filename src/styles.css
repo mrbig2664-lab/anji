@@ -348,6 +348,46 @@ h1 em, h2 em { color: var(--khaki); font-style: italic; font-weight: 500; }
 .bottom-nav a span { color: var(--tomato); font-family: var(--display); font-size: 21px; }
 .bottom-nav a:active { background: var(--khaki-light); }
 
+/* Stickers are now semantic UI cues, not floating decoration. */
+.today-card::after, .vault-section::after, .memory-mode-section::after { width: 0; height: 0; background-image: none; }
+.decision-item.match { position: relative; }
+.decision-item.match::after { content: 'MATCH'; position: absolute; top: 10px; right: 10px; width: 54px; height: 42px; padding-top: 49px; color: var(--bamboo); background: url('/stickers/sticker-kiss.png') center top / 52px auto no-repeat; font-family: var(--mono); font-size: 10px; font-weight: 700; text-align: center; transform: rotate(4deg); text-shadow: 0 0 0 var(--paper); pointer-events: none; }
+.avatar { display: inline-block; flex: 0 0 auto; object-fit: contain; object-position: center; filter: drop-shadow(0 1px 0 var(--paper)) drop-shadow(1px 1px 0 rgba(57,42,34,.35)); }
+.avatar-tiny { width: 30px; height: 30px; }
+.avatar-small { width: 38px; height: 38px; }
+.person-choice-main { display: inline-flex; align-items: center; gap: 8px; }
+.person-choice-main b { font-size: 17px; }
+.person-choice { overflow: visible; }
+.match-sticker { display: inline-flex; align-items: center; gap: 5px; width: fit-content; padding: 3px 7px 3px 3px; color: var(--bamboo); background: var(--khaki); border: 1px solid var(--espresso); box-shadow: 2px 2px 0 var(--espresso); font-family: var(--mono); font-size: 12px; transform: rotate(-2deg); animation: stamp-in .3s both; }
+.match-sticker.compact { grid-column: 2; }
+.match-sticker b { font-weight: 700; }
+.pack-assignee { position: relative; align-items: center; }
+.pack-assignee button:nth-child(1), .pack-assignee button:nth-child(2) { padding-left: 35px; background-repeat: no-repeat; background-position: 6px center; background-size: 27px 27px; }
+.pack-assignee button:nth-child(1) { background-image: url('/stickers/sticker-jenny-wave.png'); }
+.pack-assignee button:nth-child(2) { background-image: url('/stickers/sticker-richard-calm.png'); }
+.pack-assignee::before { content: ''; display: none; width: 31px; height: 31px; background: url('/stickers/sticker-kiss.png') center / contain no-repeat; filter: drop-shadow(0 1px 0 var(--paper)); }
+.pack-assignee:not(:has(.active))::before { display: block; position: absolute; left: 6px; top: 7px; z-index: 1; pointer-events: none; }
+.pack-assignee:not(:has(.active)) button:nth-child(1), .pack-assignee:not(:has(.active)) button:nth-child(2) { padding-left: 35px; }
+.photo-meta { position: relative; }
+.photo-meta > span { display: inline-flex; align-items: center; min-height: 32px; padding-left: 32px; background: url('/stickers/sticker-kiss.png') left center / 28px 28px no-repeat; }
+.photo-card-body::before { content: '上传者 / caption'; color: var(--tomato); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; }
+.memory-card label { position: relative; padding-left: 36px; }
+.memory-card label:nth-of-type(1)::before, .memory-card label:nth-of-type(2)::before { content: ''; position: absolute; left: 0; top: 20px; width: 30px; height: 30px; background-repeat: no-repeat; background-position: center; background-size: contain; filter: drop-shadow(0 1px 0 var(--paper)); }
+.memory-card label:nth-of-type(1)::before { background-image: url('/stickers/sticker-jenny-wave.png'); }
+.memory-card label:nth-of-type(2)::before { background-image: url('/stickers/sticker-richard-calm.png'); }
+.vault-empty { position: relative; }
+.vault-empty::before { content: ''; width: 112px; height: 92px; margin: -10px auto 0; background: url('/stickers/sticker-photo-mission.png') center / contain no-repeat; filter: drop-shadow(0 1px 0 var(--paper)); }
+.pack-assignee button:nth-child(1), .pack-assignee button:nth-child(2), .pack-assignee button:nth-child(3) { padding: 5px; background-image: none; }
+.pack-assignee button:nth-child(1), .pack-assignee button:nth-child(2), .pack-assignee button:nth-child(3) { display: grid; place-items: center; }
+.photo-meta > span { min-height: 32px; padding-left: 0; background: none; }
+.caption-editor { display: grid; grid-template-columns: 30px 1fr; gap: 8px; align-items: start; }
+.caption-editor .avatar { margin-top: 7px; }
+.memory-card label { padding-left: 0; }
+.memory-card label::before, .memory-card label:nth-of-type(1)::before, .memory-card label:nth-of-type(2)::before { display: none; }
+.memory-card label .avatar { margin-top: 5px; }
+.memory-card label:has(.avatar) { grid-template-columns: 30px 1fr; align-items: center; }
+.memory-card label:has(.avatar) textarea { grid-column: 1 / -1; }
+
 @keyframes fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes sticker-in { from { opacity: 0; transform: translateY(-8px) rotate(-5deg) scale(.94); } to { opacity: 1; transform: translateY(0) rotate(-2deg) scale(1); } }
 @keyframes stamp-in { from { opacity: 0; transform: scale(.92) rotate(-2deg); } 70% { transform: scale(1.03) rotate(1deg); } to { opacity: 1; transform: scale(1) rotate(0); } }

@@ -7,6 +7,7 @@ create table if not exists public.photos (
   public_url text not null,
   day_id text not null,
   caption text not null default '',
+  caption_by text,
   photo_type text not null default 'Us',
   uploaded_by text not null check (uploaded_by in ('Jenny', 'Richard')),
   is_day_cover boolean not null default false,
