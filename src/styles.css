@@ -72,6 +72,9 @@ h1 em, h2 em { color: var(--khaki); font-style: italic; font-weight: 500; }
 .mode-switcher button.active small, .mode-switcher button.active.auto::after { color: #ffe8dd; }
 .mode-switcher button.auto::after { content: 'today'; color: var(--tomato); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
 .today-card { position: relative; padding: 18px; background: var(--paper); border: 1px solid var(--espresso); box-shadow: var(--shadow); }
+.today-empty-state { margin-top: 14px; padding: 20px; color: var(--espresso); background: var(--paper); border: 1px dashed var(--espresso); font-size: 17px; }
+.today-empty-state strong { display: block; margin-bottom: 7px; font-family: var(--display); font-size: 24px; font-weight: 500; }
+.today-empty-state p { margin: 0; color: var(--muted); }
 .today-card::after, .plan-expanded::after, .couple-task-card::after, .vault-section::after, .memory-mode-section::after, .closing-section::after { content: ''; position: absolute; z-index: 1; width: 88px; height: 88px; background-repeat: no-repeat; background-position: center; background-size: contain; pointer-events: none; }
 .today-card::after { top: -22px; right: 8px; background-image: url('/stickers/sticker-jenny-wave.png'); transform: rotate(4deg); }
 .today-head { padding-right: 68px; }
